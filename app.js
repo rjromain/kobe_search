@@ -1,8 +1,9 @@
-var express = require('express'),
+	var express = require('express'),
 		bodyParser = require('body-parser'),
 		session = require('express-session'),
 		request = require('request'),
 		pg = require('pg'),
+		methodOverride = require('method-override');
 		db = require('./models');
 
 	var app = express();
@@ -15,11 +16,16 @@ var express = require('express'),
 	save: {
 		uninitialize: true
 	}
-}));
+	}));
+
+	
+	app.use(express.static(__dirname + '/public'));
 
 
 	//access to body-parser npm module 
 	app.use(bodyParser.urlencoded({extended: true}));
+
+	app.use(methodOverride("_method"));
 
 app.use("/", function(req,res,next) {
 	req.login = function(user) {
@@ -42,11 +48,30 @@ app.use("/", function(req,res,next) {
 
 	//root route for the app
 	app.get('/', function(req, res){
-		res.render("index", {title: "InstaSave"});
+		res.render("index", {title: "Kobe search"});
 	});
-	// route to render search page
+	// route to render search and search query
 	app.get('/search', function(req,res){
-		res.render('search');
+		var q = req.query.q;
+		if (!q) {
+		res.render("search", {results: [], noResults: true});
+		}else{
+			
+			//var url = 'https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=kobe%20' + q;
+			//var url2 = 'https://ajax.googleapis.com/ajax/services/search/keyword?v=1.0&q=kobe%20' + q;
+			var url3 = 'http://www.reddit.com/search.json?q=kobe%20' + q;
+			request(url3, function(error, response, body) {
+				if (!error && response.statusCode === 200) {
+					// var results = JSON.parse(body).responseData.results;
+					var results = JSON.parse(body).data.children;
+					console.log(results);
+					
+					res.render('search', { results: results });
+				} else {
+					res.send('Something went wrong with the API');
+				}
+			});
+		} 
 	});
 
 
@@ -70,6 +95,12 @@ app.use("/", function(req,res,next) {
 				res.redirect('/profile');
 			});
 });
+
+	app.delete('/logout', function(req,res){
+		req.logout();
+		res.redirect('/login');
+});
+
 	//sign up route
 	app.get('/signup', function(req, res){
 		res.render('signup');
@@ -90,12 +121,38 @@ app.use("/", function(req,res,next) {
 
 
 	//profile route
-	// app.get('/profile', function(req,res){
-	// 	res.render('profile', user: );
-	// });
+	 app.get('/profile', function(req,res){
+	 	if (req.session.userId){
+	 		db.User.find(req.session.userId)
+	 		.then(function(dbUser) {
+	 			dbUser.getLikes()
+	 			.then(function(dbkobe) {
+	 				console.log(dbkobe);
+	 				res.render('profile', {user: dbUser, results: dbkobe});
+	 			})
+	 		})
+	 	} else { 
+	 		res.redirect('/login');
+	 	}
+	 });
+	 		
+	 app.post('/favorites', function(req,res){
+	 	var kobe = req.body.kobe;
+	 	console.log("THIS IS KOBE", kobe);
+	 	debugger;
+	 	req.currentUser().then(function(dbUser){
+	 		if (dbUser) {
+	 			dbUser.addToFavs(db, kobe).then(function(fav){
+	 				console.log("THIS IS THE FAV", fav);
+	 				res.redirect('/profile');
+	 			});
+	 		} else {
+	 			res.redirect('login');
+	 		}
+	 	});
+	 });
 
-	db.sequelize.sync().then(function() {
-	app.listen(3000, function() {
-		console.log('Server listening on port 3000');
-	});
+
+app.listen(3000, function() {
+	console.log('Server listening on port 3000');
 });

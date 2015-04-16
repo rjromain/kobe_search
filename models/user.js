@@ -27,10 +27,10 @@ module.exports = function(sequelize, DataTypes) {
      checkPassword: function(password) {
        return bcrypt.compareSync(password, this.passwordDigest);
      },
-     /*addToFavs: function(db,imdbID,rating) {
-       return 
-         .create({imdbID: imdbID, rating: rating, UserId: this.id});
-     }*/
+     addToFavs: function(db,LikeUrl) {
+       return db.Like
+         .create({likeUrl: LikeUrl, UserId: this.id});
+     }
    },
    classMethods: {
      encryptPassword: function(password) {
@@ -71,7 +71,7 @@ module.exports = function(sequelize, DataTypes) {
        });
      },
      associate: function(models) {
-      // this.hasMany(models.FavoriteMovie);
+      this.hasMany(models.Like);
        // associations can be defined here
      }
 
