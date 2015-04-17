@@ -13,6 +13,7 @@
 	app.use(session({
 	secret: "I'm very very secret thing",
 	resave: false,
+	saveUninitialized: true,
 	save: {
 		uninitialize: true
 	}
@@ -154,4 +155,3 @@ app.use("/", function(req,res,next) {
 
 app.listen(process.env.PORT || 3000)
 
-});
