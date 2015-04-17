@@ -1,48 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
+
       <meta charset="UTF-8">
       <title>Search</title>
       <link href="style.css" rel="stylesheet" type="text/css">
    </head>
-   <body>
-
-      <div class="header">
-         <a href="/login">Login</a>
-         <a href="/signup">Sign Up</a>
-         <a href="/profile">Profile</a>
-      </div>
-
-
-   		<div class="search-items">
-      <form method="GET" action="/search">
-         <input type="text" name="q" placeholder="Search">
-         <button> dunk this</button>
-      </form>
-      	</div>
-      
-
-
-
-      <!-- results items -->
-      <% results.forEach(function(result) { %>
-
-	      <div class="result-item">
-	         <p><a href="<%= result.data.url %>"><%= result.data.title %></a></p>
-	         <%if (result.data.thumbnail.length > 0 && result.data.thumbnail !== "self") { %>
-	         <img class="thumbnail" src="<%= result.data.thumbnail %>">
-	         <% }else{ %>
-	         <img src="kobe_default.jpg">
-	         <% } %>
-	      </div>
-	      <form method="POST" action="/favorites">
-	         <input name="kobe" type="hidden" value="<%=result.data.url%>">
-	         <button>Highlights reel</button>
-	      </form>
-
-      <% }) %>	
+   		<body>
+   		
+	   		<div id="fb-root"></div>
+			<script>(function(d, s, id) {
+	  		var js, fjs = d.getElementsByTagName(s)[0];
+	  			if (d.getElementById(id)) return;
+	  			js = d.createElement(s); js.id = id;
+	  			js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+	  			fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));</script>
+   
+		      <div class="header">
+		         	<a href="/login">Login</a>
+		        	<a href="/signup">Sign Up</a>
+		         	<a href="/profile">Profile</a>
+		      </div>
+	      
+		   		  <div class="kobe-pic1">
+		   		  		<img src="https://files.slack.com/files-pri/T0351JZQ0-F04DY3Y30/kobesearch.png">
+		   		  </div>
+   		 
+				   	  <div class="search-items">
+				      		<form method="GET" action="/search">
+				         	<input class="mucho-input" type="text" name="q" placeholder="Search">
+				      <div class="buttons">
+				         	<button class="btn"> dunk this</button>
+				         	<button class="btn"> 4th quarter black mamba time</button>
+				      </div>
+				   
+				      </div>
+	      
 
 
 
-   </body>
+      			<!-- results items -->
+	     	   <% results.forEach(function(result) { %>
+		 	   <div class="result-item">
+		         <p><a href="<%= result.data.url %>"><%= result.data.title %></a></p>
+		         <%if (result.data.thumbnail.length > 0 && result.data.thumbnail !== "self") { %>
+		         <img class="thumbnail" src="<%= result.data.thumbnail %>">
+		         <% }else{ %>
+		         <img src="kobe_default.jpg">
+		         <% } %>
+		      </div>
+		      <form method="POST" action="/favorites">
+		         <input name="kobe" type="hidden" value="<%=result.data.url%>">
+		         <button>Add to Highlight reel</button>
+		      </form>
+
+	      <% }) %>	
+	      <div class="footnotes">
+	      		<div class="tweet">
+		      		<a href="https://twitter.com/share" class="twitter-share-button" data-via="diet_rj">Tweet</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>		
+				</div>
+				<div class="fb-like" data-href="https://twitter.com/diet_rj" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
+	
+      	  <div> 
+
+
+   		</body>
 </html>

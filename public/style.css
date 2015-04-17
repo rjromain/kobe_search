@@ -1,8 +1,77 @@
 <style type="text/css">
 body { background-color: #D8D8D8;color: #444;}
-h1 {font-weight: italic;
-	text-align: right;
-	color: red;
+
+h1 {
+	text-align: center;
+	padding-right: 200px;
+	color: yellow;
+}
+.search-items {
+  	max-width: 653px;
+  	margin: 0 auto;
+  	
+  	text-align: center;
+}
+.mucho-input {
+  	width: 100%;
+  	padding: 11px 50px 11px 11px;
+  	display: block;
+  	background: none;
+  	border: 1px solid #d9d9d9;
+  	border-top-color: #c0c0c0;
+  	position: center;
+  	
+}
+.buttons {
+	max-width: 800px;
+  	margin: 0 auto;
+  	display: center;
+    display: inline-block;
+}
+
+.btn {
+	border-radius: 0px;
+}
+ header {
+      text-align: center;
+      background: url('http://www.power106.com/sites/g/files/exi681/f/styles/large_730/public/article-images-featured/245021-61186.png?itok=HtVctR2f');
+      background-size: cover;
+      padding-bottom: 1px:;
+    }
+
+.footnotes {
+	background-color: orange;
+
+}
+
+.fb-like {
+	display: inline-block;
+
+}
+.jumbotron { 
+	background-image: url('http://lakernation.com/wp-content/uploads/2014/03/los-angeles-lakers-kobe-bryant-hd-222072.jpg');
+	background-size: cover;
+
+}
+.results-profile {
+	color: white;
+}
+.index-html {
+	background-color: purple;
+}
+.nav {
+	font-style: bold;
+	color: yellow;
+	position: center;
+}
+.kobe-pic1 {
+	max-width: 718px;
+  	margin: 0 auto;
+  	padding-left: 65px;
+  	text-align: center;
+}
+.kobe-video1 {
+	position: center;
 }
 
 </style>

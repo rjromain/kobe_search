@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+<div class="jumbotron">
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
 	 <link rel='stylesheet' href='../style.css' />
 </head>
-<body>
-	<div>
+
+	<body>
+	
+		<div class= "nav">
 			<a href="/login">Login</a>
 			<a href="/search">Search</a>
 			<a href="/signup">Sign Up</a>
@@ -14,15 +17,19 @@
 			<button>Logout</button>
 		</form>
 		</div>
-<% results.forEach(function(info) { %>
+	<% results.forEach(function(info) { %>
 			<p><%= info.likeUrl %></p>
 		<% }) %>
+	
+<div class ="results-profile">
 	<div><%= results%></div>	
-	<h1>Profile page</h1>
-	<h2>you the real MVP</h2>
-	<h2>Hey allstar <%= user.userName %></h2>
-	<h2><%= user.email %></h2>
-	<h2><%= user.firstName %> <%= user.lastName %></h2>
+		<h1>Profile page</h1>
+		<h2>you the real MVP</h2>
+		<h2>Hey <%= user.userName %></h2>
+		<h2><%= user.email %></h2>
+		<h2><%= user.firstName %> <%= user.lastName %></h2>
 
-</body>
+<div>
+<div>		
+	</body>
 </html>
