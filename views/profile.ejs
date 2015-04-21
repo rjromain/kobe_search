@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<div class="jumbotron">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	 <link rel='stylesheet' href='../style.css' />
-</head>
+<div class= "profile-html">
 
-	<body>
 	
-		<div class= "nav">
-			<a href="/login">Login</a>
-			<a href="/search">Search</a>
-			<a href="/signup">Sign Up</a>
-		<form method="POST" action="/logout?_method=DELETE">
-			<button>Logout</button>
-		</form>
-		</div>
-	<% results.forEach(function(info) { %>
-			<p><%= info.likeUrl %></p>
-		<% }) %>
-	
-<div class ="results-profile">
-	<div><%= results%></div>	
-		<h1>Profile page</h1>
-		<h2>you the real MVP</h2>
-		<h2>Hey <%= user.userName %></h2>
-		<h2><%= user.email %></h2>
-		<h2><%= user.firstName %> <%= user.lastName %></h2>
+		<head>
+			<meta charset="UTF-8">
+			<title>Document</title>
+			 <link rel='stylesheet' href='../style.css' />
+		</head>
 
-<div>
-<div>		
-	</body>
+			<body>
+			
+					<div class= "nav">
+						<a href="/login">Login</a>
+						<a href="/search">Search</a>
+						<a href="/signup">Sign Up</a>
+					<form method="POST" action="/logout?_method=DELETE">
+						<button>Logout</button>
+					</form>
+					</div>
+				
+				
+			<div class ="results-profile">
+					
+					<h1>Profile page</h1>
+					<h2>you the real MVP</h2>
+					<h2>Hey <%= user.userName %></h2>
+					<h2><%= user.email %></h2>
+					<h2><%= user.firstName %> <%= user.lastName %></h2>
+				<!--<div><%= results%></div>-->
+			</div>
+			<% results.forEach(function(info) { %>
+						<a href><%= info.likeUrl %></a>
+					<% }) %>
+			
+			</body>
+</div>		
+	
 </html>

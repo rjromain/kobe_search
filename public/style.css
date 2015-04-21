@@ -1,5 +1,20 @@
-<style type="text/css">
-body { background-color: #D8D8D8;color: #444;}
+@import url(http://fonts.googleapis.com/css?family=Ropa+Sans);
+
+html {
+	font-family: 'Ropa Sans', sans-serif;
+	background-color: white;
+}
+
+body { background-color: #D8D8D8; color: #444; margin: 0 !important; }
+
+.header {
+	color: yellow;
+}
+.body-login {
+	background-color: #D8D8D8; 
+	color: #444; 
+	margin: 0 !important;
+}
 
 h1 {
 	text-align: center;
@@ -30,8 +45,25 @@ h1 {
 }
 
 .btn {
-	border-radius: 0px;
+  -webkit-border-radius: 7;
+  -moz-border-radius: 7;
+  border-radius: 7px;
+  border-color: none;
+  border-style: none;
+  color: #ffffff;
+  font-size: 19px;
+  background: #4A2583;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  float: left;
 }
+
+.btn:hover {
+  background: #F5AF1B;
+  text-decoration: none;
+}
+
+
  header {
       text-align: center;
       background: url('http://www.power106.com/sites/g/files/exi681/f/styles/large_730/public/article-images-featured/245021-61186.png?itok=HtVctR2f');
@@ -40,8 +72,21 @@ h1 {
     }
 
 .footnotes {
-	background-color: orange;
+/*	background-color: orange;
+*/	width: 100%;
+	margin: 0 auto;
+	padding: 10px;
+}
 
+.footnotes .center{
+	display: inline-block;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.footnotes .fb-like, .footnotes .tweet {
+	display: inline-block;
 }
 
 .fb-like {
@@ -49,7 +94,7 @@ h1 {
 
 }
 .jumbotron { 
-	background-image: url('http://lakernation.com/wp-content/uploads/2014/03/los-angeles-lakers-kobe-bryant-hd-222072.jpg');
+	background-image: url('https://nbcprobasketballtalk.files.wordpress.com/2014/10/cd0ymzcznguwzdbhnduynddiytjhm2yyzthlmtjjotqwyyznpwi5zmm5zwfmzdu3ymzjymfhodvkmzk2ntrjowu4zwy5.jpeg');
 	background-size: cover;
 
 }
@@ -57,12 +102,22 @@ h1 {
 	color: white;
 }
 .index-html {
-	background-color: purple;
+	background: #58417f; /* Old browsers */
+	background: -moz-linear-gradient(top,  #58417f 0%, #4a2583 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#58417f), color-stop(100%,#4a2583)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #58417f 0%,#4a2583 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #58417f 0%,#4a2583 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #58417f 0%,#4a2583 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #58417f 0%,#4a2583 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#58417f', endColorstr='#4a2583',GradientType=0 ); /* IE6-9 */
+
 }
 .nav {
 	font-style: bold;
-	color: yellow;
+	color: yellow; !important;
 	position: center;
+	font-size: 250%;
+
 }
 .kobe-pic1 {
 	max-width: 718px;
@@ -72,6 +127,29 @@ h1 {
 }
 .kobe-video1 {
 	position: center;
+	padding-left: 175px;
 }
+.profile-html {
 
-</style>
+	background-image: url('https://nbcprobasketballtalk.files.wordpress.com/2014/10/cd0ymzcznguwzdbhnduynddiytjhm2yyzthlmtjjotqwyyznpwi5zmm5zwfmzdu3ymzjymfhodvkmzk2ntrjowu4zwy5.jpeg');
+	height: 2000px
+
+}
+.index-view {
+	vertical-align: center;
+	padding-left: 375px;
+	font-size: 250%;
+	color: yellow;
+	
+
+}
+.welcome-header {
+	padding-right: 500px
+}
+.search-html{
+	background-color: white;
+	
+}
+.profile-info {
+	color: white;
+}

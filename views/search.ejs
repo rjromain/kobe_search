@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+   <div class="search-html">
    <head>
 
       <meta charset="UTF-8">
@@ -31,8 +32,10 @@
 				      		<form method="GET" action="/search">
 				         	<input class="mucho-input" type="text" name="q" placeholder="Search">
 				      <div class="buttons">
-				         	<button class="btn"> dunk this</button>
-				         	<button class="btn"> 4th quarter black mamba time</button>
+				      
+				         	<button class="btn">dunk this</button> 
+				         	<div class="btn" id="4th-qt-button"> 4th qt black mamba time</div>
+				         	<audio id="kobe-sound" src="http://www.sousound.com/music/healing/healing_01.mp3" preload="auto"  ></audio>
 				      </div>
 				   
 				      </div>
@@ -47,7 +50,7 @@
 		         <%if (result.data.thumbnail.length > 0 && result.data.thumbnail !== "self") { %>
 		         <img class="thumbnail" src="<%= result.data.thumbnail %>">
 		         <% }else{ %>
-		         <img src="kobe_default.jpg">
+		         <img src="http://i.imgur.com/x4sCgp0.gif?1">
 		         <% } %>
 		      </div>
 		      <form method="POST" action="/favorites">
@@ -56,15 +59,36 @@
 		      </form>
 
 	      <% }) %>	
+
+
 	      <div class="footnotes">
+	      	<div class="center">
 	      		<div class="tweet">
 		      		<a href="https://twitter.com/share" class="twitter-share-button" data-via="diet_rj">Tweet</a>
 					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>		
 				</div>
 				<div class="fb-like" data-href="https://twitter.com/diet_rj" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
-	
-      	  <div> 
+			</div>
+      	  </div> 
 
+
+
+
+
+      	  <script>
+      	  	var dunkThisBtn = document.getElementById('4th-qt-button');
+      	  	var kobeSound = document.getElementById('kobe-sound');
+      	  	
+
+      	  	dunkThisBtn.addEventListener("click", function() {
+				console.log('click button!');
+				kobeSound.play();
+			});
+
+
+
+      	  </script>
 
    		</body>
+   	</div>	
 </html>

@@ -128,7 +128,7 @@ app.use("/", function(req,res,next) {
 	 		.then(function(dbUser) {
 	 			dbUser.getLikes()
 	 			.then(function(dbkobe) {
-	 				console.log(dbkobe);
+	 				//console.log(dbkobe);
 	 				res.render('profile', {user: dbUser, results: dbkobe});
 	 			})
 	 		})
@@ -144,7 +144,7 @@ app.use("/", function(req,res,next) {
 	 	req.currentUser().then(function(dbUser){
 	 		if (dbUser) {
 	 			dbUser.addToFavs(db, kobe).then(function(fav){
-	 				console.log("THIS IS THE FAV", fav);
+	 				//console.log("THIS IS THE FAV", fav);
 	 				res.redirect('/profile');
 	 			});
 	 		} else {
